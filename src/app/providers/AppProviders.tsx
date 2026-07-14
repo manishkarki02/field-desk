@@ -1,9 +1,21 @@
-import type { ReactNode } from 'react'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import type { ReactNode } from "react";
 
-/**
- * Composes global providers (session, permissions, mock-db store, …).
- * TODO: wrap children with the real providers as features land.
- */
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      retry: false,
+    },
+  },
+});
+
 export function AppProviders({ children }: { children: ReactNode }) {
-  return <>{children}</>
+  return (
+    <QueryClientProvider client={queryClient}>
+      {children}
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
 }
