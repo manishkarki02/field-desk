@@ -16,8 +16,4 @@ export type PermissionKey =
   | 'analytics.view'
   | 'permissions.manage'
 
-/**
- * Editable application data — the single source of truth for access control.
- * Stored in the mock DB and updated live from the permissions feature.
- */
 export type RolePermissions = Record<Role, PermissionKey[]>
