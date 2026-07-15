@@ -16,8 +16,8 @@ Other scripts: `pnpm build` (typecheck + production build), `pnpm lint`,
 
 ## Submission links
 
-- Public repository: add the GitHub/GitLab URL before submission.
-- Deployed URL: add the production deployment URL before submission.
+- Public repository: [Link](https://github.com/manishkarki02/field-desk)
+- Deployed URL: [Link]()
 
 ## Project structure
 
