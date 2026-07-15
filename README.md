@@ -17,7 +17,7 @@ Other scripts: `pnpm build` (typecheck + production build), `pnpm lint`,
 ## Submission links
 
 - Public repository: [Link](https://github.com/manishkarki02/field-desk)
-- Deployed URL: [Link]()
+- Deployed URL: [Link](https://field-desk-liard.vercel.app/)
 
 ## Project structure
 
