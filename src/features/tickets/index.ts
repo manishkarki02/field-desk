@@ -1,1 +1,7 @@
 export * from './types'
+export * from './api/ticketsService'
+export * from './hooks/useTickets'
+export * from './hooks/useTicketMutations'
+export * from './components/TicketBadges'
+export * from './components/TicketsListPage'
+export * from './components/TicketDetailsPage'

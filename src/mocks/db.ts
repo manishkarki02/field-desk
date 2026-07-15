@@ -1,7 +1,7 @@
-import type { Organization } from "@/features/organizations";
-import type { RolePermissions } from "@/features/permissions";
-import type { User } from "@/features/staff";
-import type { Ticket } from "@/features/tickets";
+import type { Organization } from "@/features/organizations/types";
+import type { RolePermissions } from "@/features/permissions/types";
+import type { User } from "@/features/staff/types";
+import type { Ticket } from "@/features/tickets/types";
 import {
   seedOrganizations,
   seedRolePermissions,

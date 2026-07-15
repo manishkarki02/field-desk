@@ -1,6 +1,27 @@
-export type TicketStatus = 'open' | 'in_progress' | 'resolved' | 'closed'
+export const ticketStatuses = [
+  'open',
+  'in_progress',
+  'resolved',
+  'closed',
+] as const
+export type TicketStatus = (typeof ticketStatuses)[number]
 
-export type TicketPriority = 'low' | 'medium' | 'high' | 'urgent'
+export const ticketPriorities = ['low', 'medium', 'high', 'urgent'] as const
+export type TicketPriority = (typeof ticketPriorities)[number]
+
+export const ticketStatusLabels: Record<TicketStatus, string> = {
+  open: 'Open',
+  in_progress: 'In progress',
+  resolved: 'Resolved',
+  closed: 'Closed',
+}
+
+export const ticketPriorityLabels: Record<TicketPriority, string> = {
+  low: 'Low',
+  medium: 'Medium',
+  high: 'High',
+  urgent: 'Urgent',
+}
 
 export interface Ticket {
   id: string

@@ -1,4 +1,4 @@
-import type { User } from '@/features/staff'
+import type { User } from '@/features/staff/types'
 
 /**
  * Simulated session: the currently impersonated user plus, for

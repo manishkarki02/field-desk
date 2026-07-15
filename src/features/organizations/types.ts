@@ -3,3 +3,8 @@ export interface Organization {
   name: string
   createdAt: string
 }
+
+export interface OrganizationWithStats extends Organization {
+  userCount: number
+  ticketCount: number
+}

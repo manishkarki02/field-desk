@@ -1,7 +1,7 @@
-import type { RolePermissions } from '@/features/permissions'
-import type { Organization } from '@/features/organizations'
-import type { User } from '@/features/staff'
-import type { Ticket } from '@/features/tickets'
+import type { RolePermissions } from '@/features/permissions/types'
+import type { Organization } from '@/features/organizations/types'
+import type { User } from '@/features/staff/types'
+import type { Ticket } from '@/features/tickets/types'
 
 export const seedOrganizations: Organization[] = [
   { id: 'org-acme', name: 'Acme Retail', createdAt: '2025-11-03T09:00:00Z' },
@@ -177,7 +177,7 @@ export const seedTickets: Ticket[] = [
     organizationId: 'org-nova',
     title: 'GPS tracking gaps on route NL-7',
     description:
-      'Delivery vehicles on route NL-7 show 20–30 minute gaps in GPS tracking, breaking customer ETA notifications.',
+      'Delivery vehicles on route NL-7 show 20-30 minute gaps in GPS tracking, breaking customer ETA notifications.',
     status: 'in_progress',
     priority: 'high',
     assigneeId: 'user-nova-agent-1',
@@ -285,6 +285,7 @@ export const seedRolePermissions: RolePermissions = {
     'tickets.view',
     'tickets.create',
     'tickets.edit',
+    'tickets.edit_details',
     'tickets.assign',
     'tickets.delete',
     'staff.manage',
@@ -297,6 +298,7 @@ export const seedRolePermissions: RolePermissions = {
     'tickets.view',
     'tickets.create',
     'tickets.edit',
+    'tickets.edit_details',
     'tickets.assign',
     'tickets.delete',
     'staff.manage',
@@ -306,6 +308,7 @@ export const seedRolePermissions: RolePermissions = {
     'tickets.view',
     'tickets.create',
     'tickets.edit',
+    'tickets.edit_details',
     'tickets.assign',
     'analytics.view',
   ],
