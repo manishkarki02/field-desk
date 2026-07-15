@@ -2,7 +2,7 @@
 
 A multi-organization support-ticket dashboard with role-based, data-driven permissions.
 
-Built with React 19, TypeScript, and Vite. Mock data only — no backend.
+Built with React 19, TypeScript, and Vite. Mock data only, no backend.
 
 ## Install & run
 
@@ -11,7 +11,8 @@ pnpm install
 pnpm dev
 ```
 
-Other scripts: `pnpm build` (typecheck + production build), `pnpm lint`, `pnpm preview`.
+Other scripts: `pnpm build` (typecheck + production build), `pnpm lint`,
+`pnpm test`, `pnpm preview`.
 
 ## Project structure
 
@@ -26,7 +27,7 @@ src/
 │   └── layout/             #   Sidebar / top bar shell
 ├── features/
 │   ├── session/            # User switcher + active-org selection (session simulation)
-│   ├── permissions/        # Role & permission model — single source of truth for access
+│   ├── permissions/        # Role & permission model, single source of truth for access
 │   ├── tickets/            # Ticket list, details, create/edit/assign/delete
 │   ├── organizations/      # Organization directory & management
 │   ├── staff/              # Staff directory & management
@@ -36,7 +37,7 @@ src/
 │       ├── components/     #   Feature-specific UI
 │       ├── hooks/          #   Feature-specific hooks
 │       ├── types.ts        #   Domain types
-│       └── index.ts        #   Public barrel — other features import from here only
+│       └── index.ts        #   Public barrel; other features import from here only
 ├── shared/                 # Common code used across features
 │   ├── components/         #   UI primitives (spinner, empty state, restricted state, …)
 │   ├── hooks/              #   Generic hooks
@@ -48,9 +49,26 @@ src/
 Conventions:
 
 - Import via the `@/` alias (`@/features/tickets`), and only through a feature's `index.ts` barrel.
-- UI never touches `mocks/` directly — data flows through each feature's `api/` service, which simulates latency.
+- UI never touches `mocks/` directly; data flows through each feature's `api/` service, which simulates latency.
 - Access control comes from the editable role→permission map seeded in `mocks/seed.ts` (owned by the permissions feature); no hard-coded role checks scattered in components.
 
-## Status
+## Implemented surfaces
 
-Structure scaffold only — feature logic, seed records, and UI are not implemented yet.
+- Organization-scoped ticket list, ticket details, create/edit/assign/delete flows.
+- Staff directory with create/edit/remove and role-change flows.
+- Organization directory for platform-level users.
+- Editable role-to-permission matrix used by route guards and UI actions.
+- Analytics derived from the same ticket visibility rules as the ticket list.
+- Demo session controls for switching users and active organization scope.
+
+## Verification
+
+```bash
+pnpm lint
+pnpm test
+pnpm build
+```
+
+The test suite currently covers the core ticket visibility rule shared by
+ticket lists and analytics: platform scope, organization scope, and
+agent-assignment scope.
